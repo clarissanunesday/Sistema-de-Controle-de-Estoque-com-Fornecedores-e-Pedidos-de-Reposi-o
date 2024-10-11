@@ -1,0 +1,54 @@
+# Sistema de Controle de Estoque com Fornecedores e Pedidos de Reposição
+
+Este projeto implementa um sistema básico de controle de estoque utilizando banco de dados relacional. O sistema inclui funcionalidades para gerenciar fornecedores, produtos e pedidos de reposição, permitindo consultas, inserções, atualizações e exclusões de dados.
+
+## Funcionalidades
+
+- **Gerenciamento de Fornecedores**: Criação e gerenciamento de fornecedores, incluindo campos como nome, CNPJ, telefone e endereço.
+- **Controle de Produtos**: Gerenciamento de produtos com informações de quantidade em estoque, preço unitário e fornecedor.
+- **Pedidos de Reposição**: Registro de pedidos de reposição de estoque, permitindo rastrear a quantidade solicitada e datas de pedido e entrega.
+- **Consultas e Relatórios**: Relatórios sobre estoque de produtos, fornecedores e pedidos de reposição.
+- **Atualizações e Deleções**: Funcionalidades para atualizar e excluir dados de produtos e fornecedores.
+
+## Estrutura do Banco de Dados
+
+O sistema é composto por três tabelas principais:
+
+1. **Fornecedores**: Armazena informações dos fornecedores.
+2. **Produtos**: Armazena os produtos, relacionados aos fornecedores.
+3. **Pedidos de Reposição**: Registra os pedidos de reposição de estoque para os produtos.
+
+### Diagrama de Relações
+
+- **Fornecedores** (1) ----> (N) **Produtos**
+- **Produtos** (1) ----> (N) **Pedidos de Reposição**
+
+## Tabelas
+
+- **Fornecedores**:
+  - `FornecedorID`: Chave primária
+  - `NomeFornecedor`: Nome do fornecedor
+  - `CNPJ`: CNPJ do fornecedor
+  - `Telefone`: Contato do fornecedor
+  - `Endereco`: Endereço do fornecedor
+
+- **Produtos**:
+  - `ProdutoID`: Chave primária
+  - `NomeProduto`: Nome do produto
+  - `QuantidadeEstoque`: Quantidade em estoque
+  - `PrecoUnitario`: Preço unitário do produto
+  - `FornecedorID`: Chave estrangeira que faz referência ao fornecedor
+
+- **Pedidos de Reposição**:
+  - `PedidoID`: Chave primária
+  - `ProdutoID`: Chave estrangeira que faz referência ao produto
+  - `QuantidadeSolicitada`: Quantidade solicitada no pedido de reposição
+  - `DataPedido`: Data do pedido
+  - `DataEntrega`: Data de entrega do pedido
+
+## Consultas Principais
+
+- **Consulta 1**: Verificar todos os produtos em estoque.
+  
+  ```sql
+  SELECT * FROM Produtos;
