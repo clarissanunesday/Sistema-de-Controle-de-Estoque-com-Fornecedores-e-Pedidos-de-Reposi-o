@@ -1,0 +1,20 @@
+# Arquivos temporários do sistema
+.DS_Store
+Thumbs.db
+
+# Backup de editores
+*~
+
+# Arquivos de logs e outros dados temporários
+*.log
+*.sql.bak
+
+# Ferramentas de edição e IDEs
+.vscode/
+.idea/
+
+# Arquivos SQL temporários
+*.sql~
+
+# Arquivos de configuração local
+*.env
